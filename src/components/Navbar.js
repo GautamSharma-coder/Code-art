@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import {Link} from 'react-router-dom'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,33 +15,33 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-6">
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-gray-200 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-lg text-md font-semibold transition-all duration-300"
                 >
                   Home
-                </a>
+                </Link>
 
-                <a
-                  href="/"
+                <Link
+                  to="/about"
                   className="text-gray-200 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-lg text-md font-semibold transition-all duration-300"
                 >
                   About
-                </a>
+                </Link>
 
-                <a
-                  href="/"
+                <Link
+                  to="/services"
                   className="text-gray-200 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-lg text-md font-semibold transition-all duration-300"
                 >
                   Services
-                </a>
+                </Link>
 
-                <a
-                  href="/"
+                <Link
+                  to="/contact"
                   className="text-gray-200 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-lg text-md font-semibold transition-all duration-300"
                 >
                   Contact
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -92,33 +92,33 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-lg text-lg font-medium transition-all duration-300"
             >
               Home
-            </a>
+            </Link>
 
-            <a
-              href="/"
+            <Link
+              to="/about"
               className="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-lg text-lg font-medium transition-all duration-300"
             >
               About
-            </a>
+            </Link>
 
-            <a
-              href="/"
+            <Link
+              to="/services"
               className="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-lg text-lg font-medium transition-all duration-300"
             >
               Services
-            </a>
+            </Link>
 
-            <a
-              href="/"
+            <Link
+              to="/contact"
               className="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-lg text-lg font-medium transition-all duration-300"
             >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       )}
