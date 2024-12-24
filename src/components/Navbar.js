@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, User, Bell, Moon, Sun } from 'lucide-react';
+import NotificationSystem from './NotificationSystem'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isSignIn,setIsSignIn] = useState(true)
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [notifications, setNotifications] = useState([
     { id: 1, text: "Welcome to CodeArt!", isNew: true },
     { id: 2, text: "Check out our new features", isNew: true }
+    ,
+    { id: 3, text: "Check out our new features", isNew: true }
   ]);
 
   useEffect(() => {
@@ -64,13 +68,13 @@ const Navbar = () => {
             {/* Search Bar */}
             <div className="relative">
               <div className={`flex items-center transition-all duration-300 ${
-                isSearchOpen ? 'w-64' : 'w-8'
+                isSearchOpen ? 'w-48' : 'w-8'
               }`}>
                 <input
                   type="text"
                   placeholder="Search....."
                   className={`${
-                    isSearchOpen ? 'w-full pl-8 pr-4' : 'w-0'
+                    isSearchOpen ? 'w-48 pl-8 pr-4' : 'w-0'
                   } py-2 rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-400 text-white`}
                 />
                 <button
@@ -83,6 +87,8 @@ const Navbar = () => {
             </div>
 
             {/* Notifications */}
+            <NotificationSystem size={20}/>
+            {/*
             <div className="relative group">
               <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">
                 <Bell
@@ -106,7 +112,7 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-
+/*}
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
@@ -150,6 +156,24 @@ const Navbar = () => {
                     >
                       Sign out
                     </button>
+{isSignIn ? (
+            <Link
+              to="/signin"
+              onClick={() => setIsSignIn(false)}
+              className="block text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 px-3 py-2"
+            >
+              SignIn
+            </Link>):(
+            <Link
+              to="/signup"
+              onClick={() => setIsSignIn(true)}
+              className="block text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 px-3 py-2"
+            >
+              SignUp
+            </Link>
+            )
+              
+            }
                   </div>
                 </div>
               )}
@@ -247,6 +271,24 @@ const Navbar = () => {
             >
               Sign out
             </button>
+            {isSignIn ? (
+            <Link
+              to="/signin"
+              onClick={() => setIsSignIn(false)}
+              className="block text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 px-3 py-2"
+            >
+              SignIn
+            </Link>):(
+            <Link
+              to="/signup"
+              onClick={() => setIsSignIn(true)}
+              className="block text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 px-3 py-2"
+            >
+              SignUp
+            </Link>
+            )
+              
+            }
           </div>
         </div>
       </div>
