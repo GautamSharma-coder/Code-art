@@ -53,3 +53,7 @@ Follow these steps to run the project locally:
    ```bash
    git clone https://github.com/GautamSharma-coder/Code-art.git
    cd Code-art
+2. Install package
+     ```bash
+     npm Install
+     npm start 
